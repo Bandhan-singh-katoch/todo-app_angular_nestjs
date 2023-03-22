@@ -1,0 +1,14 @@
+<div id="container">
+	<h1>To-Do List<button class="add_button" (click)="createTodo()">Add</button></h1>
+	   
+    <input type="text" placeholder="Add New Todo" [(ngModel)]="newTodo">
+	<ul *ngFor="let todo of todoData">
+		<li>
+            <span class="del-span" (click)="deleteTodo(todo.id)">Delete</span> 
+            <b><span class="title-span">{{todo.title}}</span> </b>
+            <button *ngIf="!todo.completed" class="pending" (click)="updateTodo(todo.id)">Peding</button>
+            <span class="completed" *ngIf="todo.completed">Task Completed</span>
+            <!-- <button *ngIf="todo.completed" class="done" style="cursor:default">Done</button> -->
+        </li>		
+	</ul>
+</div>

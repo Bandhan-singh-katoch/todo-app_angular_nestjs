@@ -1,0 +1,26 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AppService {
+
+  constructor(private http: HttpClient) { }
+
+  createTodo(todo:any){
+    return this.http.post("http://localhost:3000/create",todo);
+  }
+
+  getTodos(){
+    return this.http.get("http://localhost:3000/todos");
+  }
+
+  updateTodo(id:number){
+    return this.http.put("http://localhost:3000/update/"+id,{});
+  }
+
+  deleteTodo(id:number){
+    return this.http.delete("http://localhost:3000/delete/"+id);
+  }
+}
